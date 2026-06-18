@@ -18,7 +18,17 @@ export interface ChatMessage {
   text: string;
 }
 
-export type ClientMessage = CreateRoomMessage | JoinRoomMessage | ChatMessage;
+export interface LeaveRoomMessage {
+  type: "leave";
+  senderName: string;
+  roomId: string;
+}
+
+export type ClientMessage =
+  | CreateRoomMessage
+  | JoinRoomMessage
+  | ChatMessage
+  | LeaveRoomMessage;
 
 export interface RoomCreatedMessage {
   type: "room_created";
