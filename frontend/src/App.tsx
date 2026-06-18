@@ -9,7 +9,7 @@ function App() {
 
   useEffect(() => {
     const WS_URL = import.meta.env.PROD
-      ? "wss://YOUR_BACKEND_NAME.onrender.com"
+      ? "wss://bazm-backend.onrender.com"
       : "ws://localhost:8080";
 
     const ws = new WebSocket(WS_URL);
