@@ -78,6 +78,28 @@ wss.on("connection", (socket: WebSocket) => {
           }
           break;
         }
+
+        case "leave": {
+          const targetRoom = rooms.get(message.roomId);
+
+          if (targetRoom) {
+            targetRoom.delete(socket);
+
+            const alert: ServerMessage = {
+              type: "system",
+              text: `${message.senderName} has left the room!`,
+            };
+            targetRoom.forEach((client) => {
+              client.send(JSON.stringify(alert));
+            });
+
+            if (targetRoom.size === 0) {
+              rooms.delete(message.roomId);
+              console.log("Room is deleted");
+            }
+          }
+          break;
+        }
       }
     } catch (error) {
       console.error("Received invalid JSON or data");
