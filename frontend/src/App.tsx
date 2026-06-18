@@ -8,7 +8,11 @@ function App() {
   const [socket, setSocket] = useState<WebSocket | null>(null);
 
   useEffect(() => {
-    const ws = new WebSocket("ws://localhost:8080");
+    const WS_URL = import.meta.env.PROD
+      ? "wss://YOUR_BACKEND_NAME.onrender.com"
+      : "ws://localhost:8080";
+
+    const ws = new WebSocket(WS_URL);
 
     ws.onopen = () => {
       console.log("Connected to server!");
