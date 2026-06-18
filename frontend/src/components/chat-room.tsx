@@ -103,10 +103,8 @@ export default function ChatRoom({
   };
 
   return (
-    // REMOVED flex flex-col. Using pure relative container.
     <div className="relative w-full h-full max-w-6xl mx-auto overflow-hidden bg-[#031c26]/60 backdrop-blur-xl shadow-2xl">
-      {/* 1. Header Area - NAILED TO TOP (h-[76px]) */}
-      <header className="absolute top-0 inset-x-0 h-[76px] z-50 flex items-center justify-between px-6 border-b border-white/10 bg-[#031c26]/90 backdrop-blur-md">
+      <header className="absolute top-0 inset-x-0 h-19 z-50 flex items-center justify-between px-6 border-b border-white/10 bg-[#031c26]/90 backdrop-blur-md">
         <div className="flex items-center gap-6">
           <button
             onClick={handleLeaveClick}
@@ -156,9 +154,7 @@ export default function ChatRoom({
         </div>
       </header>
 
-      {/* 2. Messages Area - PINNED BETWEEN HEADER AND FOOTER */}
-      {/* top-[76px] dodges the header, bottom-[80px] dodges the footer */}
-      <main className="absolute top-[76px] bottom-[80px] inset-x-0 z-10 overflow-y-auto p-6 space-y-6 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+      <main className="absolute top-19 bottom-20 inset-x-0 z-10 overflow-y-auto p-6 space-y-6 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] scrollbar-none">
         {messages.length === 0 && (
           <div className="flex justify-center items-center h-full">
             <p className="text-gray-500 text-sm">
@@ -190,7 +186,7 @@ export default function ChatRoom({
                 >
                   {!isMe && (
                     <div
-                      className={`w-8 h-8 rounded-full ${getAvatarColor(msg.senderName)} flex-shrink-0 flex items-center justify-center text-white text-[10px] font-bold mt-5 shadow-md`}
+                      className={`w-8 h-8 rounded-full ${getAvatarColor(msg.senderName)} shrink-0 flex items-center justify-center text-white text-[10px] font-bold mt-5 shadow-md`}
                     >
                       {getInitials(msg.senderName)}
                     </div>
@@ -222,8 +218,7 @@ export default function ChatRoom({
         <div ref={messagesEndRef} />
       </main>
 
-      {/* 3. Input Area - NAILED TO BOTTOM (h-[80px]) */}
-      <footer className="absolute bottom-0 inset-x-0 h-[80px] z-50 p-4 sm:px-6 bg-[#031c26]/90 backdrop-blur-md border-t border-white/5">
+      <footer className="absolute bottom-0 inset-x-0 h-20 z-50 p-4 sm:px-6 bg-[#031c26]/90 backdrop-blur-md border-t border-white/5">
         <form
           onSubmit={handleSend}
           className="flex gap-3 max-w-4xl mx-auto h-full items-center"
@@ -237,7 +232,7 @@ export default function ChatRoom({
           />
           <button
             type="submit"
-            className="w-12 h-12 flex-shrink-0 flex items-center justify-center rounded-xl bg-[#bf988a] text-[#031c26] hover:bg-[#a88579] hover:shadow-lg transition disabled:opacity-50"
+            className="w-12 h-12 shrink-0 flex items-center justify-center rounded-xl bg-[#bf988a] text-[#031c26] hover:bg-[#a88579] hover:shadow-lg transition disabled:opacity-50"
             disabled={!inputText.trim()}
           >
             <svg

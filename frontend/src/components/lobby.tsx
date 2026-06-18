@@ -51,9 +51,7 @@ const Lobby = ({ socket, userName, setUserName, setRoomId }: LobbyProps) => {
 
   return (
     <div className="flex flex-col items-center w-full max-w-md mx-auto">
-      {/* 1. Header & Logo Section */}
       <div className="flex flex-col items-center mb-8">
-        {/* App Logo */}
         <div className="w-14 h-14 bg-[#bf988a] rounded-2xl flex items-center justify-center mb-6 shadow-lg">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -73,7 +71,6 @@ const Lobby = ({ socket, userName, setUserName, setRoomId }: LobbyProps) => {
           </svg>
         </div>
 
-        {/* Real-time Badge */}
         <div className="border border-white/10 rounded-full px-4 py-1.5 text-xs text-gray-400 mb-6 flex items-center gap-2">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -91,7 +88,6 @@ const Lobby = ({ socket, userName, setUserName, setRoomId }: LobbyProps) => {
           Real-time chat rooms
         </div>
 
-        {/* Title & Subtitle */}
         <h1 className="text-4xl font-semibold text-[#bf988a] mb-2 font-serif">
           Bazm
         </h1>
@@ -100,7 +96,6 @@ const Lobby = ({ socket, userName, setUserName, setRoomId }: LobbyProps) => {
         </p>
       </div>
 
-      {/* 2. Main Form Card */}
       <div className="bg-white/5 border border-white/10 p-6 rounded-2xl shadow-2xl w-full backdrop-blur-sm">
         {error && (
           <p className="text-red-400 text-sm text-center mb-4 bg-red-500/10 border border-red-500/20 p-3 rounded-lg">
@@ -109,7 +104,6 @@ const Lobby = ({ socket, userName, setUserName, setRoomId }: LobbyProps) => {
         )}
 
         <div className="space-y-6">
-          {/* Name Input */}
           <div>
             <label className="block text-xs font-medium text-gray-400 mb-2">
               Your name
@@ -123,7 +117,6 @@ const Lobby = ({ socket, userName, setUserName, setRoomId }: LobbyProps) => {
             />
           </div>
 
-          {/* Create Room Button */}
           <div>
             <button
               onClick={handleCreateRoom}
@@ -147,7 +140,6 @@ const Lobby = ({ socket, userName, setUserName, setRoomId }: LobbyProps) => {
             </button>
           </div>
 
-          {/* Divider */}
           <div className="relative flex py-2 items-center">
             <div className="grow border-t border-white/10"></div>
             <span className="shrink-0 mx-4 text-gray-500 text-[10px] tracking-widest uppercase">
@@ -156,7 +148,6 @@ const Lobby = ({ socket, userName, setUserName, setRoomId }: LobbyProps) => {
             <div className="grow border-t border-white/10"></div>
           </div>
 
-          {/* Join Room Section */}
           <div>
             <label className="block text-xs font-medium text-gray-400 mb-2">
               Room ID
@@ -194,7 +185,6 @@ const Lobby = ({ socket, userName, setUserName, setRoomId }: LobbyProps) => {
         </div>
       </div>
 
-      {/* 3. Footer */}
       <p className="text-gray-500 text-xs text-center mt-6">
         No sign-up required - Messages sync in real-time
       </p>

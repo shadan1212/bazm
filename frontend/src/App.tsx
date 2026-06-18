@@ -38,8 +38,8 @@ function App() {
   return (
     <div className="relative w-screen h-screen  bg-[#031c26]">
       {/* Background Blurs */}
-      <div className="absolute top-[-20%] left-[-10%] w-[500px] h-[500px] bg-white/5 rounded-full blur-[120px] pointer-events-none z-0"></div>
-      <div className="absolute bottom-[-20%] right-[-10%] w-[500px] h-[500px] bg-[#bf988a]/10 rounded-full blur-[120px] pointer-events-none z-0"></div>
+      <div className="absolute top-[-20%] left-[-10%] w-125 h-125 bg-white/5 rounded-full blur-[120px] pointer-events-none z-0"></div>
+      <div className="absolute bottom-[-20%] right-[-10%] w-125 h-125 bg-[#bf988a]/10 rounded-full blur-[120px] pointer-events-none z-0"></div>
 
       {/* Main Rendering Logic */}
       {!roomId ? (
